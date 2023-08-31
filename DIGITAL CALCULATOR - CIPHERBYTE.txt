@@ -1,0 +1,69 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+    int choice;
+    do {
+        cout << "Menu:\n" << endl;
+        cout << "1. Addition" << endl;
+        cout << "2. Subtraction" << endl;
+        cout << "3. Multiplication" << endl;
+        cout << "4. Division" << endl;
+        cout << "5. Exponent" << endl;
+        cout << "6. Nth Root" << endl;
+        cout << "7. Percentage" << endl;
+        cout << "8. Modulus" << endl;
+        cout << "9. Quit\n" << endl;
+        cout << "\nEnter your choice: ";
+        cin >> choice;
+
+        if (choice >= 1 && choice <= 8) {
+            double num1, num2;
+            cout << "\nEnter two  numbers: ";
+            cin >> num1 >> num2;
+
+            switch (choice) {
+                case 1:
+                    cout << "\nResult:\n " << num1 + num2 << endl;
+                    break;
+                case 2:
+                    cout << "\nResult:\n " << num1 - num2 << endl;
+                    break;
+                case 3:
+                    cout << "\nResult:\n " << num1 * num2 << endl;
+                    break;
+                case 4:
+                    if (num2 != 0) {
+                        cout << "\nResult:\n " << num1 / num2 << endl;
+                    } else {
+                        cout << "Cannot divide by zero." << endl;
+                    }
+                    break;
+                case 5:
+                    cout << "\nResult:\n " << pow(num1, num2) << endl;
+                    break;
+                case 6:
+                    if (num2 != 0) {
+                        cout << "\nResult:\n " << pow(num1, 1.0 / num2) << endl;
+                    } else {
+                        cout << "Cannot calculate root with zero as exponent." << endl;
+                    }
+                    break;
+                case 7:
+                    cout << "\nResult:\n " << (num1 * num2) / 100 << endl;
+                    break;
+                case 8:
+                    cout << "\nResult:\n " << static_cast<int>(num1) % static_cast<int>(num2) << endl;
+                    break;
+            }
+        } else if (choice == 9) {
+            cout << "\nGoodbye!\n" << endl;
+        } else {
+            cout << "\nInvalid choice. Please select again.\n" << endl;
+        }
+
+    } while (choice != 9);
+
+    return 0;
+}
